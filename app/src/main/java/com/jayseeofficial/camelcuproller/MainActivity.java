@@ -1,5 +1,6 @@
 package com.jayseeofficial.camelcuproller;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -107,14 +108,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     protected Void doInBackground(Void... params) {
                         while (randomizing) {
-                            final int rnum = random.nextInt(4);
+                            final int rnum = random.nextInt(3);
                             runOnUiThread(new Runnable() {
+                                @SuppressLint("SetTextI18n")
                                 @Override
                                 public void run() {
-                                    if (rnum < 3)
-                                        theDie.setText(Integer.toString(rnum + 1));
-                                    else
-                                        theDie.setText("");
+                                    theDie.setText(Integer.toString(rnum + 1));
                                 }
                             });
                             try {
